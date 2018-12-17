@@ -69,6 +69,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP stuff
 # https://forum.xda-developers.com/showthread.php?t=1943625&page=66
+TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TW_THEME := landscape_mdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_REBOOT_BOOTLOADER := true
