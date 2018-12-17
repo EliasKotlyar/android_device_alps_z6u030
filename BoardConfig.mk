@@ -41,7 +41,7 @@ BOARD_KERNEL_CMDLINE += \
 	androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS  := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board X510-D5110-L-20
+BOARD_MKBOOTIMG_ARGS  := --kernel_offset 0x80008000 --ramdisk_offset 0x84000000 --tags_offset 0x8e000000 --board 1524545048
 TARGET_PREBUILT_KERNEL := device/alps/l706/prebuilt/kernel
 
 # TARGET IMAGES
@@ -70,8 +70,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # TWRP stuff
 # https://forum.xda-developers.com/showthread.php?t=1943625&page=66
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_SCREEN_WIDTH := 1024
-TARGET_SCREEN_WIDTH := 600
+TW_THEME := landscape_mdpi
 
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_REBOOT_BOOTLOADER := true
