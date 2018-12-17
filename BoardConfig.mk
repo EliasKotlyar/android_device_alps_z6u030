@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/alps/z6u030
+LOCAL_PATH := device/alps/l706
 
 
 # Architecture
@@ -42,13 +42,13 @@ BOARD_KERNEL_CMDLINE += \
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS  := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board X510-D5110-L-20
-TARGET_PREBUILT_KERNEL := device/alps/z6u030/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := device/alps/l706/prebuilt/kernel
 
 # TARGET IMAGES
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # RECOVERY
-TARGET_RECOVERY_FSTAB := device/alps/z6u030/recovery/root/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/alps/l706/recovery/root/twrp.fstab
 
 # PARTTIONS
 # We need the partitions size in decimal
@@ -69,8 +69,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP stuff
 # https://forum.xda-developers.com/showthread.php?t=1943625&page=66
-TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
-TW_THEME := landscape_mdpi
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_SCREEN_WIDTH := 1024
+TARGET_SCREEN_WIDTH := 600
+
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness

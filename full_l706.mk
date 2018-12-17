@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 The Android Open-Source Project
+# Copyright (C) 2016 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,12 @@
 # limitations under the License.
 #
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-$(call inherit-product, device/alps/z6u030/full_z6u030.mk)
-
-PRODUCT_NAME := omni_z6u030
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := l706
+PRODUCT_NAME := full_l706
+PRODUCT_BRAND := alps
+PRODUCT_MODEL := l706_alps
+PRODUCT_MANUFACTURER := alps
