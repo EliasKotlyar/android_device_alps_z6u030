@@ -68,7 +68,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13561757696
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP stuff
-TW_THEME := portrait_hdpi
+# https://forum.xda-developers.com/showthread.php?t=1943625&page=66
+TW_THEME := landscape_mdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
