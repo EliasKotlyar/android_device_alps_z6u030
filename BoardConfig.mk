@@ -41,7 +41,7 @@ BOARD_KERNEL_CMDLINE += \
 	androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS  := --kernel_offset 0x80008000 --ramdisk_offset 0x84000000 --tags_offset 0x8e000000 --board 1524545048
+BOARD_MKBOOTIMG_ARGS  := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1524545048
 TARGET_PREBUILT_KERNEL := device/alps/l706/prebuilt/kernel
 
 # TARGET IMAGES
