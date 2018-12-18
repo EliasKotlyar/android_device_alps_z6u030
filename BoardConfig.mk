@@ -28,7 +28,6 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_LDPRELOAD := libxlog.so
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
@@ -46,6 +45,7 @@ TARGET_PREBUILT_KERNEL := device/alps/l706/prebuilt/kernel
 
 # TARGET IMAGES
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # RECOVERY
 TARGET_RECOVERY_FSTAB := device/alps/l706/recovery/root/twrp.fstab
@@ -53,11 +53,7 @@ TARGET_RECOVERY_FSTAB := device/alps/l706/recovery/root/twrp.fstab
 # PARTTIONS
 # We need the partitions size in decimal
 # Use cat proc/partitions via adb, then block size * 1024
-# 'Tis typical for counterfeit/clone devices to come with a hacked framework
-# that is so coded to report a different ROM capacity than what's actually there.
-#
-# Apparently the userdata partition is set at ~5GB, and system at 1.3GB
-# Change these in case you want to port this to your clone or white-box phone.
+# This is the partitions of tecno ROM, system size is bigger than Android One ROM
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 # For l706 - "0x60000000"
@@ -68,23 +64,28 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13561757696
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP stuff
-# https://forum.xda-developers.com/showthread.php?t=1943625&page=66
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TW_THEME := landscape_mdpi
-
+DEVICE_RESOLUTION := 1024x600
+TARGET_SCREEN_HEIGHT := 600
+TARGET_SCREEN_WIDTH := 1024
+TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_NO_REBOOT_BOOTLOADER := true
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 TW_MAX_BRIGHTNESS := 255
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_EXCLUDE_SUPERSU := true
 TW_INCLUDE_FB2PNG := true
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_REBOOT_BOOTLOADER := true
-TW_REBOOT_RECOVERY := true
-TW_HAS_DOWNLOAD_MODE := true
-TW_EXCLUDE_SUPERSU := false
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/emmc"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/userdata"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
+TW_EXCLUDE_SUPERSU := true
 TW_USE_TOOLBOX := true
-
-# Device-specific stuff - the clone I am working on has a flipped framebuffer
-# This basically forced me to download BBQLinux and git these source files :P
-BOARD_HAS_FLIPPED_SCREEN := true
